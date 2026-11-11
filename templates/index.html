@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#650014">
+  <title>محمد سلوم</title>
+  
+  
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+    :root {
+      --wine: #650014;
+      --red: #a6002b;
+      --pink: #ffb3c7;
+      --cream: #fff5f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 16px;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      color: var(--cream);
+      font-family: 'Cairo', Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,190,205,.22), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(255,70,110,.22), transparent 30%),
+        linear-gradient(145deg, #39000d 0%, #85001e 48%, #3d000e 100%);
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient span {
+      position: absolute;
+      bottom: -60px;
+      color: rgba(255,220,228,.16);
+      font-size: clamp(18px, 4vw, 34px);
+      animation: floatUp linear infinite;
+    }
+
+    .ambient span:nth-child(1) { left: 8%; animation-duration: 17s; }
+    .ambient span:nth-child(2) { left: 24%; animation-duration: 22s; animation-delay: 4s; }
+    .ambient span:nth-child(3) { left: 71%; animation-duration: 19s; animation-delay: 2s; }
+    .ambient span:nth-child(4) { left: 90%; animation-duration: 24s; animation-delay: 7s; }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) rotate(0deg); opacity: 0; }
+      15% { opacity: 1; }
+      to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      width: min(100%, 520px);
+      padding: clamp(30px, 7vw, 54px) clamp(22px, 6vw, 46px);
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 30px;
+      background: linear-gradient(150deg, rgba(255,255,255,.15), rgba(255,255,255,.055));
+      box-shadow: 0 28px 90px rgba(20,0,7,.45), inset 0 1px 0 rgba(255,255,255,.18);
+      backdrop-filter: blur(16px);
+      animation: cardIn .8s ease both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(22px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .top-heart {
+      display: inline-grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 22px;
+      background: rgba(255,255,255,.12);
+      font-size: 31px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.15);
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: #ffd5df;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #130006;
+      font-size: clamp(34px, 8vw, 48px);
+      font-weight: 900;
+      text-shadow: 0 1px 0 rgba(255,255,255,.16);
+    }
+
+    .date {
+      display: inline-block;
+      margin: 13px 0 25px;
+      padding: 6px 16px;
+      color: #ffe6ec;
+      border: 1px solid rgba(255,220,230,.25);
+      border-radius: 999px;
+      background: rgba(30,0,9,.2);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      direction: ltr;
+    }
+
+    .rule {
+      width: 56px;
+      height: 2px;
+      margin: 0 auto 25px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, transparent, #ffc0d0, transparent);
+    }
+
+    h2 {
+      margin: 0 0 28px;
+      color: #fff7f8;
+      font-size: clamp(21px, 5vw, 27px);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+
+    .buttons { display: grid; gap: 14px; }
+
+    button {
+      width: 100%;
+      min-height: 58px;
+      padding: 13px 18px;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    button:hover { transform: translateY(-3px); }
+    button:active { transform: translateY(0) scale(.985); }
+    button:focus-visible { outline: 3px solid #ffd6e0; outline-offset: 4px; }
+
+    .first {
+      color: #fff;
+      background: linear-gradient(135deg, #171014, #3a1725);
+      box-shadow: 0 10px 24px rgba(20,0,8,.24);
+      border-color: rgba(255,255,255,.14);
+    }
+
+    .first:hover { box-shadow: 0 14px 30px rgba(20,0,8,.35); }
+
+    .second {
+      color: #7c0020;
+      background: linear-gradient(135deg, #fff8fa, #ffdce5);
+      box-shadow: 0 10px 24px rgba(20,0,8,.16);
+    }
+
+    .second:hover { box-shadow: 0 14px 30px rgba(20,0,8,.25); }
+
+    #message {
+      display: none;
+      margin-top: 23px;
+      padding: 17px 14px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px;
+      background: rgba(45,0,13,.28);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.9;
+      animation: messageIn .45s ease both;
+    }
+
+    @keyframes messageIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart-scene {
+      display: none;
+      margin-top: 24px;
+      animation: messageIn .6s ease both;
+    }
+
+    .heart-drawing {
+      width: min(210px, 62vw);
+      margin: 0 auto;
+      filter: drop-shadow(0 0 14px rgba(255, 20, 70, .5));
+    }
+
+    .heart-path {
+      fill: rgba(220, 0, 50, .12);
+      stroke: #ff174d;
+      stroke-width: 5;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      stroke-dasharray: 620;
+      stroke-dashoffset: 620;
+      animation: drawHeart 2.2s ease forwards, heartFill .8s ease 2.1s forwards;
+    }
+
+    @keyframes drawHeart {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes heartFill {
+      to { fill: #e4003b; }
+    }
+
+    .heart-wrap {
+      display: inline-block;
+      animation: heartbeat 1.15s ease-in-out 3s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.11); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.08); }
+      56% { transform: scale(1); }
+    }
+
+    .hanin-name {
+      margin: 5px 0 10px;
+      color: #fff;
+      font-size: clamp(30px, 8vw, 44px);
+      font-weight: 900;
+      text-shadow: 0 0 18px rgba(255, 80, 120, .55);
+      opacity: 0;
+      transform: translateY(8px);
+      animation: nameIn .7s ease 2.5s forwards;
+    }
+
+    @keyframes nameIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lyrics {
+      margin: 18px auto 0;
+      padding: 16px;
+      max-width: 410px;
+      color: #ffe8ee;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      background: rgba(45,0,13,.24);
+      line-height: 2;
+      font-size: clamp(14px, 3.8vw, 17px);
+      font-weight: 700;
+      white-space: pre-line;
+      opacity: 0;
+      animation: messageIn .7s ease 3s forwards;
+    }
+
+    .song-title {
+      margin: 0 0 7px;
+      color: #ffd2dd;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .footer {
+      margin: 28px 0 0;
+      color: rgba(255,235,240,.62);
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+
+    @media (max-width: 420px) {
+      .card { border-radius: 24px; }
+      button { font-size: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span>♡</span><span>♥</span><span>♡</span><span>♥</span>
+  </div>
+
+  <main class="card">
+    <div class="top-heart" aria-hidden="true">❤️</div>
+    <p class="eyebrow">A LITTLE QUESTION</p>
+    <h1>محمد سلوم</h1>
+    <div class="date">11/11/2026</div>
+    <div class="rule"></div>
+
+    <h2>حنين مين أكتر حدا بتحبيه؟</h2>
+
+    <div class="buttons">
+      <button class="first" onclick="firstAnswer()">
+        محمد سلوم (أبو علي) ❤️
+      </button>
+      <button class="second" onclick="wrongAnswer()">
+        أشخاص آخرون
+      </button>
+    </div>
+
+    <div id="message" role="status" aria-live="polite"></div>
+
+    <div class="heart-scene" id="heartScene">
+      <div class="heart-wrap">
+        <svg class="heart-drawing" viewBox="0 0 200 180" role="img" aria-label="قلب أحمر مرسوم">
+          <path class="heart-path" pathLength="620"
+            d="M100 165 C88 151, 22 111, 22 62 C22 30, 47 14, 72 20 C87 23, 96 34, 100 43 C104 34, 113 23, 128 20 C153 14, 178 30, 178 62 C178 111, 112 151, 100 165 Z"/>
+        </svg>
+      </div>
+
+      <div class="hanin-name">حنحونتي (أم علي) ❤️</div>
+
+      <div class="lyrics">
+        <div class="song-title">🎵 محسود</div>
+محسود على عودك يا جميل
+على دقة عود إتمايل ميل
+بعد اللي أنا دقته، كله بيجي بوقته
+قدامنا طول الليل مواويل
+محسود على عودك يا جميل
+على دقة عود إتمايل ميل
+بعد اللي أنا دقته، كله بيجي بوقته
+قدامنا طول الليل مواويل
+      </div>
+      <div class="special-message">
+  <div class="special-date">11:11 ❤️</div>
+
+  <p>
+    بيوم بيشبه كل الأيام... كان في أمنية مختلفة عن كل الأمنيات
+  </p>
+
+  <p>
+    ما كنت بعرف إنو ممكن إنسان يغيّر تفاصيل يومي ويصير وجودو بحد ذاتو تفصيل ما بقدر استغني عنه ❤️
+  </p>
+
+  <p>
+    يمكن المسافة أخدت منا اللقاءات وحرمتني من إني شوف ضحكتك وقت ما بدي...
+    بس ما قدرت تاخد منا اللهفة الصادقة والمشاعر الحلوه ❤️
+  </p>
+
+  <p>
+    بهاليوم ما عندي أمنية جديدة...
+    عندي أمنية قديمة بتتجدد كل يوم
+  </p>
+
+  <p class="wish">
+    إنك تضلي تضحكي، وإنو الأيام تجمعني فيكي، وتكوني نصيبي وشريكة عمري،
+    وإنو كل المسافات اللي بيناتنا تصير يوم من الأيام مجرد ذكرى ❤️
+  </p>
+
+  <div class="happy">Happy 11:11</div>
+  <div class="signature">Hanin ❤️</div>
+</div>
+    </div>
+
+    <p class="footer">MADE WITH LOVE</p>
+  </main>
+
+  <audio id="loveSong" preload="auto">
+    <source src="../static/audio/wahashtiny.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الملفات الصوتية.
+  </audio>
+
+  <script>
+    function firstAnswer() {
+      document.getElementById("message").style.display = "none";
+
+      const scene = document.getElementById("heartScene");
+      scene.style.display = "none";
+      void scene.offsetWidth;
+      scene.style.display = "block";
+
+      // تبدأ الأغنية مع الضغط على زر محمد سلوم ❤️
+      const song = document.getElementById("loveSong");
+      song.currentTime = 0;
+      song.play().catch(() => {
+        console.log("تعذر التشغيل التلقائي للصوت في هذا المتصفح.");
+      });
+    }
+
+    function wrongAnswer() {
+      document.getElementById("heartScene").style.display = "none";
+      const message = document.getElementById("message");
+      message.textContent = "😂 كبستي غلط شايفك وليك عيدي تشوف ❤️";
+      message.style.display = "block";
+    }
+  </script>
+</body>
+</html>
